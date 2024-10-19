@@ -1,0 +1,64 @@
+<div class="login-container .container-fluid">
+    <div class="block-1">
+        <div class="block-inicio">
+            <h3>Iniciar sesión</h3>
+            <p>Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades. Inicia sesión y continúa aprovechando al máximo nuestra plataforma.</p>
+        </div>
+        
+        <div>
+            <div class="icon-div">
+                <mat-icon matPrefix>Icon</mat-icon>
+                <div>
+                    <h6>Monitoreo integral</h6>
+                    <p>Administra, monitoria mutiples plantas de forma centralizada</p>
+                </div>
+                
+            </div>
+            <div class="icon-div">
+                <mat-icon matPrefix>Icon</mat-icon>
+                <div>
+                    <h6>Notificaciones en tiempo real</h6>
+                    <p>Recibi notificaciones en tiempo real sobre las mediciones</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="block-2">
+        <h3>Portal de monitoreo</h3>
+        <h4>Iniciar sesión</h4>
+        
+        <form [formGroup]="form" class="form">
+            <div class="form-mat">
+                <mat-form-field class="example-full-width">
+                    <mat-label for="email">Email</mat-label>
+                    <input type="email" id="email" formControlName="email"
+                           placeholder="Ex. pat@example.com" class="form-control">
+    
+                
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="password">Contraseña</mat-label>
+                    <input  type="password" id="password" class="form-control"> 
+                </mat-form-field>
+            </div>
+
+
+            <div class="form-button">
+                <p>¿Olvidaste tu contraseña?</p>
+                <button mat-button class="button">Iniciar sesión</button>
+                
+            </div>
+                
+            <p>Protegido por reCAPTCHA y sujeto a la <span>Política de Privacidad y Condiciones.</span></p>    
+        </form>
+
+       
+
+        
+
+    </div>
+
+    
+</div>

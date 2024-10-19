@@ -1,0 +1,120 @@
+.login-container{
+    display: flex;
+    flex-direction: row;
+    
+}
+.block-1, .block-2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15% 6%;
+}
+.block-inicio h3 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: left;
+}
+h6{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+p{
+    font-weight: 400;
+    font-size: 12px;
+}
+.block-inicio{
+    width: 362px;
+}
+.block-inicio p {
+    font-size: 14px;
+}
+.icon-div{
+    display: flex;
+    flex-direction: row;
+    padding: 0 1%;
+    gap: 5px;
+    align-items: flex-start;
+}
+.block-1{
+    background-image: url('../../assets/img/image 3.png'), url("../../assets/img/Fondo.png");
+    
+    background-position: left;
+    background-repeat: no-repeat;
+    width: 796px;
+    height: 900px;
+    gap: 0px;
+    opacity: 0.85;
+    background-blend-mode: multiply;
+    color: #FFFFFF;
+    /*linear-gradient(#33A3AA, #107076)*/
+
+}
+
+.block-2 h3{
+    width: 368px;
+    height: 55px;
+    top: 260px;
+    left: 907px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+.block-2 h4{
+    width: 165px;
+    height: 48px;
+    top: 315px;
+    left: 907px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+.form{
+    width: 439px;
+}
+.form-mat {
+    display: flex;
+    flex-direction: column;
+}
+.form-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.button{
+    width: 164px;
+    height: 48px;
+    top: 539px;
+    left: 1136px;
+    gap: 0px;
+    border-radius: 12px ;
+    border-style: none;
+    opacity: 0px;
+    background: #33A3AA;
+    
+    
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+.block-2 p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    color: #84818A;
+}
+.block-2 span{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    
+    color: #33A3AA;
+}
