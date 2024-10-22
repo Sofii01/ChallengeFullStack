@@ -6,17 +6,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MonitoreoGloblaComponent } from './monitoreo-globla/monitoreo-globla.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MonitoreoGlobalComponent } from './monitoreo-global/monitoreo-global.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatCardModule} from '@angular/material/card'
+import {MatTableModule} from '@angular/material/table'
+import {MatIconModule} from '@angular/material/icon'
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MonitoreoGloblaComponent,
     NavbarComponent,
-    MonitoreoGlobalComponent,
     DashboardComponent
   ],
   imports: [
@@ -24,7 +25,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
