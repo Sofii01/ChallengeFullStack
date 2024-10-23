@@ -1,14 +1,51 @@
+.nav-dash-container{
+    width: 100%;
+    max-height: 160vh;
+    top: -450px;
+    left: 820px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+li{
+    list-style:  none;
+}
 .dashboard-container{
     background: #E9F1F4;
-    padding: 2% 2%;
+    padding: 2% 8%;
+    
 }
 h5{
     color: #8E8EA1;
 }
-hr{
-   border: 1px solid #F3F6F7;    
+h4{
+    
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: right;
 
 }
+hr{
+   border: 1px solid #8E8EA1;    
+
+}
+.dashboard-nav{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1%;
+}
+.nav-container{
+    display: flex;
+    gap: 10px;
+
+}
+.nav-container img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
 .mat-card{
     width: 290px;
     height: 110px;
@@ -45,8 +82,8 @@ hr{
 }
 .table-container{
     background: #FFFFFF;
-    width: 90%;
-    padding: 2% 1%;
+    width: 100%;
+    padding: 3%;
     margin-left: 1%;
     border-radius: 15px;
 }
@@ -54,7 +91,7 @@ hr{
     max-width: 360px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     text-align: left;
 }
@@ -75,10 +112,7 @@ hr{
 
 }
 .table {
-    border: 1px solid black;
-    padding: 0 1%;
-
-    
+    width: 90%;
 }
 .table th{
     border-bottom: none;

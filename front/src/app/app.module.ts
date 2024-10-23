@@ -11,7 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card'
 import {MatTableModule} from '@angular/material/table'
 import {MatIconModule} from '@angular/material/icon'
-
+import {MatSidenavModule} from '@angular/material/sidenav'
+import {}from '@angular/material/'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatIconModule} from '@angular/material/icon'
     ReactiveFormsModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
