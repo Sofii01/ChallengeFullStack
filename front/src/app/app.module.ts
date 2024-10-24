@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,14 +12,20 @@ import {MatCardModule} from '@angular/material/card'
 import {MatTableModule} from '@angular/material/table'
 import {MatIconModule} from '@angular/material/icon'
 import {MatSidenavModule} from '@angular/material/sidenav'
-import {}from '@angular/material/'
+import {MatInputModule }from '@angular/material/input';
+import { ModalCrearComponent } from './modal-crear/modal-crear.component';
+import {MatSelectModule} from '@angular/material/select'
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalCrearComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,10 @@ import {}from '@angular/material/'
     MatCardModule,
     MatTableModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
