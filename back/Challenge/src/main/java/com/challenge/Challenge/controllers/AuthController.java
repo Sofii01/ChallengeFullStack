@@ -1,6 +1,7 @@
 package com.challenge.Challenge.controllers;
 
 import com.challenge.Challenge.dtos.AuthDtoResponse;
+import com.challenge.Challenge.dtos.LoginRequest;
 import com.challenge.Challenge.dtos.RegisterRequest;
 import com.challenge.Challenge.services.interfaces.IAuthService;
 
@@ -21,5 +22,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<AuthDtoResponse> register( @RequestBody RegisterRequest request){
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(request));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthDtoResponse> login (@RequestBody LoginRequest request){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(authService.login(request));
     }
 }
