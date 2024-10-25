@@ -16,6 +16,7 @@ import {MatInputModule }from '@angular/material/input';
 import { ModalCrearComponent } from './modal-crear/modal-crear.component';
 import {MatSelectModule} from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     NavbarComponent,
     DashboardComponent,
     ModalCrearComponent,
+  
    
   ],
   imports: [
@@ -39,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSidenavModule,
     MatDialogModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

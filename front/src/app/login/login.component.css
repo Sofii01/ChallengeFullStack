@@ -84,6 +84,10 @@ p{
     justify-content: space-around;
     align-items: center;
 }
+.form-label{
+    color: #84818A;
+    font-size: 12px;
+}
 .button{
     width: 164px;
     height: 48px;

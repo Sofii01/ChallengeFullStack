@@ -15,7 +15,7 @@
                 
             </div>
             <div class="icon-div">
-                <mat-icon matPrefix>Icon</mat-icon>
+                <mat-icon matPrefix><img src="../../assets/img/IconEstrella.png"></mat-icon>
                 <div>
                     <h6>Notificaciones en tiempo real</h6>
                     <p>Recibi notificaciones en tiempo real sobre las mediciones</p>
@@ -29,25 +29,29 @@
         <h3>Portal de monitoreo</h3>
         <h4>Iniciar sesión</h4>
         
-        <form [formGroup]="form" class="form">
-            <div class="form-mat">
+        <form [formGroup]="form" class="form form-mat ">
+        
                 <mat-form-field class="example-full-width">
-                    <mat-label class="form-label" >Email</mat-label>
+                    <label class="form-label" for="email">Email</label>>
                     <input matInput type="email" id="email" formControlName="email"
-                           placeholder="Ex. pat@example.com" class="form-control">
-    
-                
+                           placeholder="Ex. pat@example.com" class="form-control" [errorStateMatcher]="matcher">
+                    <mat-error  *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
+                            Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="form.get('email')?.hasError('required')">
+                            Email is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label for="password">Contraseña</mat-label>
-                    <input  type="password" id="password" class="form-control"> 
+                    <label for="password" class="form-label">Contraseña</label>>
+                    <input  type="password" id="password" class="form-control" formControlName="password" placeholder="Contraseña"> 
                 </mat-form-field>
-            </div>
+            
 
 
             <div class="form-button">
                 <p>¿Olvidaste tu contraseña?</p>
-                <button mat-button class="button">Iniciar sesión</button>
+                <button mat-button class="button" (click)="onSubmit()">Iniciar sesión</button>
                 
             </div>
                 
