@@ -15,6 +15,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 @Component
 public class JwtProvider {
@@ -29,13 +30,14 @@ public class JwtProvider {
                 .setClaims(extraClaims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 60*2))
+                .setExpiration(new Date(System.currentTimeMillis() +1000*60*24))
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
     public String getToken(User user){
         Map<String, Object> claims = new HashMap<>();
         claims.put("email", user.getEmail());
+        claims.put("role", user.getRole());
         return createToken(claims, user.getEmail());
     }
     public Key getKey(){
@@ -59,6 +61,15 @@ public class JwtProvider {
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }
+    }
+
+    public Claims getAllClaims(String token) {
+        return Jwts
+                .parserBuilder()
+                .setSigningKey(getKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
 

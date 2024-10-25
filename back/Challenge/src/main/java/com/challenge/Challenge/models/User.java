@@ -1,5 +1,6 @@
 package com.challenge.Challenge.models;
 
+import com.challenge.Challenge.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,5 +18,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.ADMINISTRATOR;
 }

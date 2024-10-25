@@ -28,8 +28,8 @@ public class PlantaService implements IPlantaService {
     public PlantaDtoResponse createPlanta(PlantaRequest request) {
         try{
             Planta planta = new Planta();
-            planta.setNombre(planta.getNombre());
-            planta.setPais(planta.getPais());
+            planta.setNombre(request.getNombre());
+            planta.setPais(request.getPais());
             plantaRepository.save(planta);
 
             return modelMapper.map(planta, PlantaDtoResponse.class);
@@ -43,7 +43,7 @@ public class PlantaService implements IPlantaService {
     public PlantaDtoResponse updatePlanta(Integer id, PlantaUpdateRequest request) {
         Optional<Planta> optional = plantaRepository.findById(id);
         if (optional.isEmpty()){
-            throw new ModelNotFoundException(id, "Planta");
+            throw new ModelNotFoundException("Not found Planta with id " + id);
         }
         Planta planta = optional.get();
         planta.setPais(request.getPais());
@@ -60,7 +60,7 @@ public class PlantaService implements IPlantaService {
     public PlantaDtoResponse getById(Integer id) {
         Optional<Planta> planta = plantaRepository.findById(id);
         if (planta.isEmpty()){
-            throw new ModelNotFoundException(id, "Planta");
+            throw new ModelNotFoundException("Not found Planta with id " + id);
         }
 
         return modelMapper.map(planta.get(), PlantaDtoResponse.class);
@@ -76,7 +76,7 @@ public class PlantaService implements IPlantaService {
     public void deletePlanta(Integer id) {
         Optional<Planta> optional = plantaRepository.findById(id);
         if (optional.isEmpty()){
-            throw new ModelNotFoundException(id, "Planta");
+            throw new ModelNotFoundException("Not found Planta with id " + id);
         }
         Planta planta = optional.get();
         plantaRepository.delete(planta);
