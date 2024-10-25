@@ -9,17 +9,14 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlantaUpdateRequest {
-    @NotBlank
-    private String pais;
-    @NotBlank
-    private String nombre;
+public class PlantasCantTotal {
     @NotBlank
     private int cantLecturas;
     @NotBlank
-    private int alertasMedias;
+    private int cantAlertMedias;
     @NotBlank
-    private int alertasAltas;
+    private int cantAlertAltas;
     @NotBlank
-    private int sensoresDeshab;
+    private int cantSensDes;
+
 }

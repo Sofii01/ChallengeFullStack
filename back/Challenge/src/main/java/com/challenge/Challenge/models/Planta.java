@@ -18,10 +18,10 @@ public class Planta {
     private Integer id;
     private String pais;
     private String nombre;
-    private int cantLecturas;
-    @OneToMany(mappedBy = "alertas")
-    private List<Alerta> alertas;
+    private int cantLecturas = 0;
+    private int alertasMedias = 0;
+    private int alertasAltas = 0;
 
-    private int sensoresDeshab;
+    private int sensoresDeshab = 0;
 
 }
