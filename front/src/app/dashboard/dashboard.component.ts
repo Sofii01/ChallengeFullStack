@@ -1,29 +1,24 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { MatDialog, MatDialogRef  } from '@angular/material/dialog';
 import { ModalCrearComponent } from '../modal-crear/modal-crear.component';
-
+import {PlantasService} from '../services/plantas.service'
+import {PlantasResponse} from '../models/plantas-response'
+import { LoginService } from '../services/login.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   isModalOpen = false;
   displayedColumns: string[] = ['pais', 'nombrePlanta', 'cantLecturas', 'alertasMedias', 'alertasAltas', 'acciones'];
   dialogRef: MatDialogRef<ModalCrearComponent> | null = null; 
-  
-  plantas =[
-    {
-      pais: 'Argentina', 
-      nombrePlanta: 'Quilmes',
-      cantLecturas: 300,
-      alertasMedias: 10,
-      alertasAltas: 2
-    }
-  ]
+  plantas: PlantasResponse[] = [];
+
+
 
   
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private plantaService: PlantasService, private loginService:LoginService) {}
   
 
   openDialog(): void {
@@ -47,4 +42,11 @@ export class DashboardComponent {
     });
   }
 
+  ngOnInit(): void {
+    const tokenString = this.loginService.getToken();
+    const token =  tokenString ? JSON.parse(tokenString).tokenLogin : null;
+    this.plantaService.getPlantas(token).subscribe(data => {
+        this.plantas = data;
+    });
+  }
 }

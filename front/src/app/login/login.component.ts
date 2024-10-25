@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -25,13 +26,12 @@ export class LoginComponent {
 
   showPassword = false;
   authenticated = false;
-  tokenAuth: String = '';
   errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -53,9 +53,11 @@ export class LoginComponent {
       response =>{
         console.log(response)
         if(response && response.token){
-          this.tokenAuth = response.token;
           this.authenticated = true;
           this.router.navigate(['/dashboard']);
+        }
+        if(this.loginService.getToken == null){
+          this.router.navigate([''])
         }
 
       },
@@ -65,6 +67,7 @@ export class LoginComponent {
       }
     )
   }
+
 }
 
 

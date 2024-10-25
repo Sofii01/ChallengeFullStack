@@ -15,12 +15,17 @@ export class LoginService {
   login(data: any): Observable<AuthResponse>{
     return this.http.post<AuthResponse>(`${this.apiUrl}/login`, data).pipe(
       tap((respose) => {
-        this.tokenRecibido = respose.token;  
+        
+        localStorage.setItem('token', respose.token);  
       }),
       catchError(function (error) {
         console.error('Error en la solicitud HTTP:', error);
         return throwError(() => new Error('Error en la solicitud: ' + error.message));
       })
     )
+  }
+  getToken(): string | null {
+    const token = localStorage.getItem('token');
+    return token;
   }
 }

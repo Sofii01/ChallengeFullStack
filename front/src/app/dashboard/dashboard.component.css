@@ -62,41 +62,11 @@ hr{
     height: 20px;
     cursor: pointer;
 }
-
-.mat-card{
-    width: 290px;
-    height: 110px;
-
-    background: #FFFFFF;
-    
-    border-radius: 8px;
-    align-items: baseline ;
-    margin: 1% 1%;
-
-}
-.card-content{
-    width: 100%;
-    height: 90%;
-    top: 31px;
-    left: 18px;
-    
+.app-cards-container{
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: center;
 }
-.card-content h5{
 
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    text-align: left;
-    margin: 0;
 
-}
-.card-content p {
-    margin: 0;
-}
 .table-container{
     background: #FFFFFF;
     width: 100%;

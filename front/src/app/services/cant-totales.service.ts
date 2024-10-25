@@ -1,0 +1,30 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, Observable, tap, throwError  } from 'rxjs';
+import {CantTotalResponse} from '../models/cant-total-response'
+import { LoginService } from './login.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class CantTotalesService {
+  private apiUrl = 'http://localhost:8080/api/plantas'
+  constructor(private http: HttpClient, private loginService: LoginService) { }
+  
+  getCatidades(): Observable<CantTotalResponse>{
+    const tokenString = this.loginService.getToken();
+    const token =  tokenString ? JSON.parse(tokenString).tokenLogin : null;
+    console.log(token);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<CantTotalResponse>(`${this.apiUrl}/cantidades`, {headers})
+      .pipe(
+        catchError((error)=>{
+          console.error('Error en la solicitud HTTP:', error);
+        return throwError(() => new Error('Error en la solicitud: ' + error.message));
+        })
+      )
+  }
+
+
+}
