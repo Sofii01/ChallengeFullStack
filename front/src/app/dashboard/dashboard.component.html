@@ -28,7 +28,7 @@
         <div class="table-container">
             <div class="table-title-button">
                 <h5>Plantas</h5>
-                <button>+ Crear nueva planta</button>
+                <button mat-button (click)="openDialog()">+ Crear nueva planta</button>
             </div>
             <hr>
             <table mat-table [dataSource]="plantas" class="table">
