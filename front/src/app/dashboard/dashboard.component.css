@@ -7,14 +7,31 @@
     opacity: 0px;
 
 }
+.overlay {
+    position: static;
+  }
+.overlay::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);  /* Sombra negra semitransparente */
+    z-index: 0;  /* Asegúrate de que esté por encima del contenido */
+  }
+
 li{
     list-style:  none;
 }
 .dashboard-container{
     background: #E9F1F4;
     padding: 2% 8%;
-    
+
 }
+
+    
+  
 h5{
     color: #8E8EA1;
 }

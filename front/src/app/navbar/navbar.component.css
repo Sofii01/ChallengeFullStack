@@ -1,6 +1,7 @@
 .nav-left{
     background-color: #FFFFFF;
     position: absolute;
+    
     display: flex;
     flex-direction: column;
     width: 80px;

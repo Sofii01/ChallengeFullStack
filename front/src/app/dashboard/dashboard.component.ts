@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef  } from '@angular/material/dialog';
 import { ModalCrearComponent } from '../modal-crear/modal-crear.component';
 
 @Component({
@@ -8,6 +8,10 @@ import { ModalCrearComponent } from '../modal-crear/modal-crear.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  isModalOpen = false;
+  displayedColumns: string[] = ['pais', 'nombrePlanta', 'cantLecturas', 'alertasMedias', 'alertasAltas', 'acciones'];
+  dialogRef: MatDialogRef<ModalCrearComponent> | null = null; 
+  
   plantas =[
     {
       pais: 'Argentina', 
@@ -18,18 +22,27 @@ export class DashboardComponent {
     }
   ]
 
-  displayedColumns: string[] = ['pais', 'nombrePlanta', 'cantLecturas', 'alertasMedias', 'alertasAltas', 'acciones'];
+  
   constructor(public dialog: MatDialog) {}
+  
+
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalCrearComponent, {
-      width: '250px'
+    this.isModalOpen = true;
+    if (this.dialogRef) {
+      this.dialogRef.close();  // Cierra el diálogo anterior si ya está abierto
+    }
+    this.dialogRef = this.dialog.open(ModalCrearComponent, {
+      width: '250px',
+      hasBackdrop: false, 
+      
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe(result => {
       if(result){
         console.log('Dialog result:', result);
       }
-      
+      this.isModalOpen = false;
+      this.dialogRef = null;
 
     });
   }
