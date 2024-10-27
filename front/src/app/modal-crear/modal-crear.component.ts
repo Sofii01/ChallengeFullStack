@@ -22,7 +22,7 @@ export class ModalCrearComponent {
     private plantaService: PlantasService
   ) {
     this.form= this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(5)]],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
       pais: ['',  [Validators.required]]
     })
   }
@@ -48,8 +48,7 @@ export class ModalCrearComponent {
       }
 
     )
-    console.log(nombre, pais);
 
-    this.dialogRef.close({ nombre, pais });
+    this.dialogRef.close();
   }
 }

@@ -34,9 +34,7 @@
     font-size: 14px;
     font-weight: 500;
 }
-.form-control{
-    border: 1px solid #84818A;
-}
+
 .mat-dialog-content{
     display: flex;
     flex-direction: column;

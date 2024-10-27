@@ -26,7 +26,7 @@ export class ModalUpdateComponent {
     
   ) {
     this.form= this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(5)]],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
       pais: ['',  [Validators.required]],
       cantLecturas: ['', [Validators.required, Validators.min(1)]],
       alertasMedias: ['', [Validators.required, Validators.min(1)]],
