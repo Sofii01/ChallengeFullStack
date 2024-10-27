@@ -32,18 +32,13 @@
         <form [formGroup]="form" class="form form-mat ">
         
                 <mat-form-field class="example-full-width">
-                    <label class="form-label" for="email">Email</label>>
+                    <label class="form-label" for="email">Email</label>
                     <input matInput type="email" id="email" formControlName="email"
-                           placeholder="Ex. pat@example.com" class="form-control" [errorStateMatcher]="matcher">
-                    <mat-error  *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
-                            Please enter a valid email address
-                    </mat-error>
-                    <mat-error *ngIf="form.get('email')?.hasError('required')">
-                            Email is <strong>required</strong>
-                    </mat-error>
+                           placeholder="Ex. pat@example.com" class="form-control">
+
                 </mat-form-field>
                 <mat-form-field>
-                    <label for="password" class="form-label">Contraseña</label>>
+                    <label for="password" class="form-label">Contraseña</label>
                     <input  type="password" id="password" class="form-control" formControlName="password" placeholder="Contraseña"> 
                 </mat-form-field>
             

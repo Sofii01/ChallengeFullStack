@@ -6,7 +6,7 @@ import { AuthResponse } from '../models/auth-response'
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8080/api/auth'
+  private apiUrl = 'https://challengefullstack.onrender.com/api/auth'
 
   constructor(private http: HttpClient) {
 

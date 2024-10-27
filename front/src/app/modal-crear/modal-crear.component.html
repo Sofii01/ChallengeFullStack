@@ -2,23 +2,23 @@
 <div class="modal-container">
   <h2 mat-dialog-title>Crear nueva planta</h2>
   <mat-dialog-content class="mat-dialog-content">
-    <form action="" class="form">
-      <mat-form-field>
-        <mat-label>Nombre de la planta</mat-label>
-        <input matInput  class="form-control" placeholder="Ingrese nombre" [(ngModel)]="plantName" />
+    <form [formGroup]="form" class="form">
+      <mat-form-field class="example-full-width">
+        <label class="form-label" for="nombre">Nombre de la planta</label>
+        <input matInput class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre" />
       </mat-form-field>
       
-      <mat-form-field>
-        <mat-label>Pais</mat-label>
-        <mat-select [(ngModel)]="selectedPais">
-          <mat-option *ngFor="let pais of paises" [value]="pais.value">
+      <mat-form-field class="example-full-width">
+        <label class="form-label" for="pais">Pais</label>
+        <mat-select formControlName="pais" id="pais">
+          <mat-option *ngFor="let pais of paises" [value]="pais.name">
             {{pais.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-dialog-actions class="mat-actions">
         <button mat-button (click)="onNoClick()" class="button-cancelar">Cancelar</button>
-        <button mat-button class="button-crear" [mat-dialog-close]="{plantName: plantName, selectedPais: selectedPais}" cdkFocusInitial>Crear</button>
+        <button mat-button class="button-crear" (click)="onCrearPlanta()" >Crear</button>
       </mat-dialog-actions>
     </form>
 

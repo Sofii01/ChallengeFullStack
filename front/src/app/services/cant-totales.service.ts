@@ -12,10 +12,8 @@ export class CantTotalesService {
   
   getCatidades(): Observable<CantTotalResponse>{
     const tokenString = this.loginService.getToken();
-    const token =  tokenString ? JSON.parse(tokenString).tokenLogin : null;
-    console.log(token);
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${tokenString}`
     });
     return this.http.get<CantTotalResponse>(`${this.apiUrl}/cantidades`, {headers})
       .pipe(

@@ -3,16 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import {FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import {LoginService} from '../services/login.service'
 import { Router } from '@angular/router';
-import {ErrorStateMatcher} from '@angular/material/core';
-
-
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 
 @Component({
@@ -21,7 +11,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  matcher = new MyErrorStateMatcher();
   form: FormGroup;
 
   showPassword = false;

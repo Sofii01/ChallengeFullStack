@@ -20,8 +20,9 @@ import {MatInputModule }from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { ModalUpdateComponent } from './modal-update/modal-update.component';
+import {MatMenuModule} from '@angular/material/menu'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     ModalCrearComponent,
     CardsLecturasComponent,
+    ModalUpdateComponent,
   
    
   ],
@@ -48,6 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

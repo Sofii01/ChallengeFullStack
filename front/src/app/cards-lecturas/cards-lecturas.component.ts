@@ -32,7 +32,6 @@ export class CardsLecturasComponent {
           this.cantSensDes = response.cantSensDes;
    
         }
-        console.error("Datos no encontrados")
       },
       error => {
         console.log("Error al buscar datos de lecturas", error)

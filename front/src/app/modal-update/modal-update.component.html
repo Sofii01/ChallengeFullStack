@@ -1,0 +1,40 @@
+<div class="modal-container"  >
+    <h2 mat-dialog-title>Editar planta</h2>
+    <mat-dialog-content class="mat-dialog-content">
+      <form [formGroup]="form" class="form">
+        <mat-form-field class="example-full-width">
+          <label class="form-label">Nombre de la planta</label>
+          <input matInput  class="form-control" placeholder="Ingrese nombre" formControlName="nombre" required="nombre"/>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <label class="form-label">Pais</label>
+          <mat-select formControlName="pais" class="mat-select">
+            <mat-option *ngFor="let pais of paises" [value]="pais.name">
+              {{pais.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <label class="form-label">Cantidad de Lecturas</label>
+            <input matInput  class="form-control" placeholder="Ingrese " type="number" formControlName="cantLecturas" required="cantLecturas" />
+        </mat-form-field>
+        <mat-form-field>
+            <label class="form-label">Alertas Medias</label>
+            <input matInput  class="form-control" placeholder="Ingrese " type="number"formControlName="alertasMedias"  required="alertasMedias"/>
+        </mat-form-field>
+        <mat-form-field>
+            <label class="form-label">Alertas Altas</label>
+            <input matInput  class="form-control" placeholder="Ingrese " type="number" formControlName="alertasAltas"  required="alertasAltas"/>
+        </mat-form-field>
+        <mat-form-field>
+          <label class="form-label">Sensores Desh.</label>
+          <input matInput  class="form-control" placeholder="Ingrese " type="number" formControlName="sensDes"  required="alertasAltas"/>
+        </mat-form-field>
+        <mat-dialog-actions class="mat-actions">
+          <button mat-button (click)="onNoClick()" class="button-cancelar">Cancelar</button>
+          <button mat-button (click)="onEditar()" class="button-crear" >Crear</button>
+        </mat-dialog-actions>
+      </form>
+  
+    </mat-dialog-content>

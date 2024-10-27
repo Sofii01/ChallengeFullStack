@@ -30,7 +30,7 @@
                 </ng-container>
                 <ng-container matColumnDef="nombrePlanta">
                     <th mat-header-cell *matHeaderCellDef> Nombre de la planta </th>
-                    <td mat-cell *matCellDef="let planta"> {{planta.nombrePlanta}} </td>
+                    <td mat-cell *matCellDef="let planta"> {{planta.nombre}} </td>
                 </ng-container>
                 <ng-container matColumnDef="cantLecturas">
                     <th mat-header-cell *matHeaderCellDef> Lecturas </th>
@@ -48,7 +48,16 @@
                 <ng-container matColumnDef="acciones">
                     <th mat-header-cell *matHeaderCellDef> Acciones </th>
                     <td mat-cell *matCellDef="let planta"> 
-                        <button mat-icon-button class="table-button"><img src="../../assets/img/Vector.png" alt=""></button>
+                        <div class="acciones-menu">
+                            <button mat-icon-button class="table-button" (click)="toggleMenu()">
+                                <img src="../../assets/img/Vector.png" alt="">
+                            </button>
+                            <div *ngIf="isMenuOpen" class="menu">
+                                <button (click)="editar(planta)">Editar</button>
+                                <button (click)="eliminar(planta)">Eliminar</button>
+                            </div>
+               
+                        </div>
                     </td>
                 </ng-container>
             
@@ -58,30 +67,32 @@
         </div>
    
 
-
-        <div class="mat-card card">
-            <mat-card-content class="card-content">
-                <img src="../../assets/img/IconTemp.png" alt="">
-                <div class="card-indicadores">
-                    <h5>Temperatura</h5>
-                    <ul class="card-list">
-                        <li class="card-item">
-                            <img src="../../assets/img/Icon.png" alt="">
-                            <p>100</p>
-                        </li>
-                        <li class="card-item">
-                            <img src="../../assets/img/Group 8719.png" alt="">
-                            <p>20</p>
-                        </li>
-                        <li class="card-item">
-                            <img src="../../assets/img/Group 8705.png" alt="">
-                            <p>3</p>
-                        </li>
-                    </ul>
-                </div>
-
-            </mat-card-content>
+        <div class="cards">
+            <div class="mat-card card" *ngFor="let indicador of indicadores">
+                <mat-card-content class="card-content">
+                    <img [src]="indicador.img" alt="">
+                    <div class="card-indicadores">
+                        <h5>{{indicador.tipo}}</h5>
+                        <ul class="card-list">
+                            <li class="card-item">
+                                <img src="../../assets/img/Icon.png" alt="">
+                                <p>{{indicador.cantLecturas}}</p>
+                            </li>
+                            <li class="card-item">
+                                <img src="../../assets/img/Group 8719.png" alt="">
+                                <p>{{indicador.alertasMedias}}</p>
+                            </li>
+                            <li class="card-item">
+                                <img src="../../assets/img/Group 8705.png" alt="">
+                                <p>{{indicador.alertasAltas}}</p>
+                            </li>
+                        </ul>
+                    </div>
+    
+                </mat-card-content>
+            </div>
         </div>
+        
 
     </div>
 
