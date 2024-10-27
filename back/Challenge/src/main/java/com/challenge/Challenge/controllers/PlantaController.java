@@ -42,4 +42,10 @@ public class PlantaController {
         List<PlantaDtoResponse> plantaDtoResponses = plantaService.getAll();
         return ResponseEntity.ok(plantaDtoResponses);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePlanta(@PathVariable @Min(1) Integer id){
+        plantaService.deletePlanta(id);
+        return ResponseEntity.ok().build();
+    }
 }
