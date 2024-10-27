@@ -7,7 +7,7 @@ import { LoginService } from './login.service';
   providedIn: 'root'
 })
 export class CantTotalesService {
-  private apiUrl = 'http://localhost:8080/api/plantas'
+  private apiUrl = 'https://challengefullstack.onrender.com/api/plantas'
   constructor(private http: HttpClient, private loginService: LoginService) { }
   
   getCatidades(): Observable<CantTotalResponse>{

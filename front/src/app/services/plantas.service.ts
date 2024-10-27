@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
 })
 export class PlantasService {
   
-  private apiUrl = 'http://localhost:8080/api/plantas';
+  private apiUrl = 'https://challengefullstack.onrender.com/api/plantas';
 
   constructor(private http: HttpClient,  private loginService: LoginService) { }
 
