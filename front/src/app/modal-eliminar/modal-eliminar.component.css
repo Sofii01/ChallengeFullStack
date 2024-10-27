@@ -1,0 +1,59 @@
+.modal-container{
+    position: fixed;
+    top: 30%;
+    background: #ffffff;
+    left: 40%;
+    box-shadow: 20px 10px 66px 10px #0000001A;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    border-radius: 20px;
+
+}
+
+*{
+    font-family: 'Poppins', 'sans-serif';
+}
+.modal-container h2{
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+
+}
+.mat-dialog-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mat-actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.button-cancelar{
+    width: 100px;
+    height: 36px;
+    top: 532px;
+    left: 615px;
+    gap: 0px;
+    border-radius:10px;
+    background-color: #FFFFFF;
+    border: 1px solid #33A3AA;
+    color: #33A3AA;
+}
+.button-eliminar{
+    width: 100px;
+    height: 36px;
+    top: 532px;
+    left: 725px;
+    gap: 0px;
+    border-radius: 10px;
+    opacity: 0px;
+    border: none;
+    background-color: #33A3AA;    
+    color: #FFFFFF;
+}

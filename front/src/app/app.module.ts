@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalUpdateComponent } from './modal-update/modal-update.component';
 import {MatMenuModule} from '@angular/material/menu'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalEliminarComponent } from './modal-eliminar/modal-eliminar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModalCrearComponent,
     CardsLecturasComponent,
     ModalUpdateComponent,
+    ModalEliminarComponent,
   
    
   ],

@@ -59,4 +59,21 @@ export class PlantasService {
       
     )
   }
+
+  eliminarPlanta(id: number): Observable<any>{
+    const tokenString = this.loginService.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${tokenString}`
+    });
+    return this.http.delete(`${this.apiUrl}/${id}`, {headers}).pipe(
+      tap((response) => {
+        console.log(response);
+      }),
+      catchError((error)=> {
+        console.log(error);
+        return throwError(()=> new Error('Error en la solicitud ' + error.message));
+      })
+    )
+
+  }
 }

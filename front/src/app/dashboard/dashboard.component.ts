@@ -6,6 +6,7 @@ import {PlantasResponse} from '../models/plantas-response'
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { ModalUpdateComponent } from '../modal-update/modal-update.component';
+import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit{
   displayedColumns: string[] = ['pais', 'nombrePlanta', 'cantLecturas', 'alertasMedias', 'alertasAltas', 'acciones'];
   dialogRef1: MatDialogRef<ModalCrearComponent> | null = null; 
   dialogRefUpdate: MatDialogRef<ModalUpdateComponent> | null = null; 
+  dialogRefEliminar: MatDialogRef<ModalEliminarComponent> | null = null;
   plantas: PlantasResponse[] = [
     {
       id: 0,  
@@ -92,9 +94,7 @@ export class DashboardComponent implements OnInit{
   
   constructor(
     public dialog: MatDialog, 
-    private plantaService: PlantasService, 
-    private loginService:LoginService,
-    private router: Router) {}
+    private plantaService: PlantasService, ) {}
   
 
   openDialog(): void {
@@ -103,7 +103,6 @@ export class DashboardComponent implements OnInit{
       this.dialogRef1.close(); 
     }
     this.dialogRef1 = this.dialog.open(ModalCrearComponent, {
-      width: '250px',
       hasBackdrop: false, 
       
     });
@@ -133,15 +132,11 @@ export class DashboardComponent implements OnInit{
       this.dialogRefUpdate.close(); 
     }
     this.dialogRefUpdate = this.dialog.open(ModalUpdateComponent, {
-      width: '250px',
       hasBackdrop: false, 
       data: planta
       
     });
     this.dialogRefUpdate.afterClosed().subscribe(result => {
-      if(result){
-        console.log('Dialog result:', result);
-      }
       this.isModalOpen = false;
       this.dialogRefUpdate = null;
       this.getPlantas()
@@ -149,7 +144,20 @@ export class DashboardComponent implements OnInit{
     });
   }
   eliminar(planta: PlantasResponse): void{
-
+    this.isModalOpen = true;
+    if (this.dialogRefEliminar) {
+      this.dialogRefEliminar.close(); 
+    }
+    this.dialogRefEliminar = this.dialog.open(ModalEliminarComponent, {
+      hasBackdrop: false, 
+      data: planta
+      
+    });
+    this.dialogRefEliminar.afterClosed().subscribe(result => {
+      this.isModalOpen = false;
+      this.dialogRefEliminar = null;
+      this.getPlantas()
+    });
   }
 
 }
