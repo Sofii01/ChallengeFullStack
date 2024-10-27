@@ -16,6 +16,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 @Component
@@ -48,8 +49,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private String getTokenFromRequest(HttpServletRequest request){
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+        Enumeration<String> s = request.getHeaderNames();
 
         if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer")){
+            
             return authHeader.substring(7);
         }
         return null;
